@@ -4,10 +4,10 @@
 resource "aws_security_group" "main" {
   vpc_id = "${var.vpc_id}"
 
-  tags {
-    Name        = "sg${var.name}LoadBalancer"
-    Project     = "${var.project}"
-    Environment = "${var.environment}"
+  tags = {
+    "Name"        = "sg${var.name}LoadBalancer"
+    "Project"     = "${var.project}"
+    "Environment" = "${var.environment}"
   }
 }
 
@@ -24,10 +24,10 @@ resource "aws_alb" "main" {
     prefix = "${var.access_log_prefix}"
   }
 
-  tags {
-    Name        = "alb${var.environment}${var.name}"
-    Project     = "${var.project}"
-    Environment = "${var.environment}"
+  tags = {
+    "Name"        = "alb${var.environment}${var.name}"
+    "Project"     = "${var.project}"
+    "Environment" = "${var.environment}"
   }
 }
 
